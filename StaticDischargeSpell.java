@@ -1,4 +1,4 @@
-public class StaticDischargeSpell extends Spells {
+public class StaticDischargeSpell implements Spells {
 
     private final int MANA_COST = 6;
 
@@ -19,7 +19,7 @@ public class StaticDischargeSpell extends Spells {
             return true;
         }
         else {
-            System.out.println("You tried casting " + this.toString() + " but didn't have enough mana!");
+            System.out.println("You tried casting " + this.getSpellName() + " but didn't have enough mana!");
             return false;
         }
     }
@@ -29,5 +29,24 @@ public class StaticDischargeSpell extends Spells {
         int MIN = 3;
         int MAX = 5;
         return random.nextInt((MAX - MIN) + 1) + MIN;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        else if (!(o.getClass() == this.getClass())) {
+            return false;
+        }
+        else {
+            Spells casted = (Spells) o;
+            return casted.getClass().getName().equals(this.getClass().getName());
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + this.getClass().getName().hashCode();
+        return result;
     }
 }
