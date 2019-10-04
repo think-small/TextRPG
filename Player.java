@@ -4,15 +4,15 @@ public class Player {
 
     private int gold;
     private int mana;
-    private SpellContainer spells;
+    private SpellContainer spellContainer;
     private ArrayList<Abilities> abilities;
     private HashMap<String, int[]> inventory;
     private ArrayList<Equipable> equipment;
 
-    public Player(int gold, int mana, SpellContainer spells, ArrayList<Abilities> abilities, HashMap<String, int[]> inventory, ArrayList<Equipable> equipment) {
+    public Player(int gold, int mana, SpellContainer spellContainer, ArrayList<Abilities> abilities, HashMap<String, int[]> inventory, ArrayList<Equipable> equipment) {
         this.gold = gold;
         this.mana = mana;
-        this.spells = spells;
+        this.spellContainer = spellContainer;
         this.abilities = abilities;
         this.inventory = inventory;
         this.equipment = equipment;
@@ -38,8 +38,8 @@ public class Player {
         this.mana = mana;
     }
 
-    public SpellContainer getSpells() {
-        return this.spells;
+    public SpellContainer getSpellContainer() {
+        return this.spellContainer;
     }
 
 }

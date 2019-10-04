@@ -32,7 +32,7 @@ public class SpellContainer {
 
     public Spells findSpell(String spellName) {
         return this.spellSet.stream()
-                .filter(e -> spellName.equals(e.toString()))
+                .filter(e -> spellName.equals(e.getSpellName()))
                 .findFirst()
                 .orElse(null);
     }
