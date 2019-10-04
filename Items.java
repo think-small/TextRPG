@@ -20,4 +20,28 @@ public abstract class Items {
     protected int getValue() {
         return this.value;
     }
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        else if ( !(this.getClass() == o.getClass()) ) return false;
+        else {
+            Items obj = (Items) o;
+            return ( (obj.getName() == this.getName()) && (obj.getValue() == this.getValue()) );
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + this.getClass().getName().hashCode();
+        result = 31 * result + this.getName().hashCode();
+        result = 31 * result + this.getValue();
+        return result;
+    }
 }

@@ -28,5 +28,11 @@ class Main {
         System.out.printf("Learned Spells (%d): ", player.getSpellContainer().getSpells().size());
         player.getSpellContainer().getSpells().stream()
                 .forEach(spell -> System.out.printf("%s ", spell.getSpellName()));
+        System.out.println();
+
+        player.getItemsContainer().addItems("StoneItem", "UBIQUITOUS");
+        player.getItemsContainer().addItems("PaperSwordWeaponItem", "LEVEL_ONE");
+        player.getItemsContainer().addItems("StoneItem", "UBIQUITOUS");
+        System.out.printf("Number of items in inventory: %d%n", player.getItemsContainer().getItemsMap().keySet().size());
     }
 }

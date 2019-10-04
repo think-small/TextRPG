@@ -2,24 +2,24 @@ import java.util.*;
 
 public class Player {
 
-    private int gold;
-    private int mana;
+    private int gold, mana, attack;
     private SpellContainer spellContainer;
     private ArrayList<Abilities> abilities;
-    private HashMap<String, int[]> inventory;
-    private ArrayList<Equipable> equipment;
+    private ItemsContainer itemsContainer;
+    private ArrayList<Equippable> equipment;
 
-    public Player(int gold, int mana, SpellContainer spellContainer, ArrayList<Abilities> abilities, HashMap<String, int[]> inventory, ArrayList<Equipable> equipment) {
+    public Player(int gold, int mana, int attack, SpellContainer spellContainer, ArrayList<Abilities> abilities, ItemsContainer itemsContainer, ArrayList<Equippable> equipment) {
         this.gold = gold;
         this.mana = mana;
+        this.attack = attack;
         this.spellContainer = spellContainer;
         this.abilities = abilities;
-        this.inventory = inventory;
+        this.itemsContainer = itemsContainer;
         this.equipment = equipment;
     }
 
     public Player() {
-        this(0, 15, new SpellContainer(), new ArrayList<Abilities>(), new HashMap<String, int[]>(), new ArrayList<Equipable>());
+        this(0, 15, 5, new SpellContainer(), new ArrayList<Abilities>(), new ItemsContainer(), new ArrayList<Equippable>());
     }
 
     public int getGold() {
@@ -30,6 +30,8 @@ public class Player {
         return this.mana;
     }
 
+    public int getAttack() { return this.attack; }
+
     public void setGold(int gold) {
         this.gold = gold;
     }
@@ -38,8 +40,16 @@ public class Player {
         this.mana = mana;
     }
 
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
     public SpellContainer getSpellContainer() {
         return this.spellContainer;
+    }
+
+    public ItemsContainer getItemsContainer() {
+        return this.itemsContainer;
     }
 
 }
