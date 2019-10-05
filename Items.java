@@ -23,7 +23,7 @@ public abstract class Items {
 
     @Override
     public String toString() {
-        return this.getName();
+        return this.getClass().getName();
     }
 
     @Override
@@ -32,7 +32,7 @@ public abstract class Items {
         else if ( !(this.getClass() == o.getClass()) ) return false;
         else {
             Items obj = (Items) o;
-            return ( (obj.getName() == this.getName()) && (obj.getValue() == this.getValue()) );
+            return ( (obj.toString() == this.toString()) && (obj.getValue() == this.getValue()) );
         }
     }
 

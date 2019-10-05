@@ -33,6 +33,6 @@ class Main {
         player.getItemsContainer().addItems("StoneItem", "UBIQUITOUS");
         player.getItemsContainer().addItems("PaperSwordWeaponItem", "LEVEL_ONE");
         player.getItemsContainer().addItems("StoneItem", "UBIQUITOUS");
-        System.out.printf("Number of items in inventory: %d%n", player.getItemsContainer().getItemsMap().keySet().size());
+        player.getItemsContainer().getItemsMap().forEach( (key, value) -> System.out.println(key + " " + value) );
     }
 }
