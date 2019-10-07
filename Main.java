@@ -34,5 +34,9 @@ class Main {
         player.getItemsContainer().addItems("PaperSwordWeaponItem", "LEVEL_ONE");
         player.getItemsContainer().addItems("StoneItem", "UBIQUITOUS");
         player.getItemsContainer().getItemsMap().forEach( (key, value) -> System.out.println(key + " " + value) );
+        
+        player.getItemsContainer().removeItems("StoneItem");
+                player.getItemsContainer().getItemsMap().forEach( (key, value) -> System.out.println(key + " " + value) );
+        
     }
 }

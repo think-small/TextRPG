@@ -1,5 +1,6 @@
 import java.util.*;
 import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 public class ItemsContainer {
     private Map<Items, Integer> itemsMap = new HashMap<>();
@@ -29,13 +30,35 @@ public class ItemsContainer {
                 break;
         }
     }
+    
+    // TODO if multiple instances of the same item are found, ask user to select one for deletion
+    public void removeItems(String itemToRemove) {
+        Set<Items> foundItem = searchItemsContainer(itemToRemove);
+        if (foundItem.size() > 1) {
+            System.out.printf("More than one %s found. Please choose one to drop.%n", itemToRemove);
+        }
+        else if (this.getItemsMap().get(foundItem.toArray()[0]) > 1) {
+            System.out.printf("You dropped %s!%n", foundItem.toArray()[0]);
+            int updatedQuantity = this.getItemsMap().get(foundItem.toArray()[0]) - 1;
+            this.getItemsMap().put((Items) foundItem.toArray()[0], updatedQuantity);
+        }
+        else {
+            System.out.printf("You dropped %s!%n", foundItem.toArray()[0]);
+            getItemsMap().remove(foundItem.toArray()[0]);
+        }
+    }
 
     public Map<Items, Integer> getItemsMap() {
         return this.itemsMap;
     }
 
+    private Set<Items> searchItemsContainer(String itemToRemove) {
+        return this.getItemsMap().keySet().stream()
+            .filter(item -> item.toString().equals(itemToRemove))
+            .collect(Collectors.toSet());
+    }
+    
     private String searchItemsList(String itemToFind, String areaName) {
-
         for (ItemNamesEnum value : ItemNamesEnum.values()) {
             if (value.toString().equals(areaName)) {
                 return Stream.of(value.getItemNames())
