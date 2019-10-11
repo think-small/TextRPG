@@ -7,7 +7,7 @@ public class StoneItem extends Items {
         this("Stone", "It's just a random stone", 0);
     }
 
-    public void use() {
-
+    public String use() {
+        return this.description;
     }
 }

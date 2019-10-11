@@ -9,7 +9,7 @@ public abstract class Items {
         this.value = value;
     }
 
-    abstract void use();
+    abstract String use();
 
     protected String getName() {
         return this.name;

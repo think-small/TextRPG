@@ -11,8 +11,9 @@ public class PaperSwordWeaponItem extends Items implements WeaponItems {
     }
 
     @Override
-    public void use() {
-
+    public String use() {
+        increaseAttack(player);
+        return String.format("Increased attack by %d!", this.ATTACK_MODIFIER);
     }
 
     @Override
